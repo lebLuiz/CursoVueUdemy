@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<div id="app">
+    <h1 v-once> {{ titulo }} </h1>
+    <p> {{ saudacao() }} </p>
+    <a v-bind:href="link">Google</a>
+</div>
+
+<!-- COM O 'v-once' VOCÊ PODE UTILIZAR QUANDO TEM UM TRECHO DE HTML QUE NÃO PRECISA SER ATUALIZADO SEMPRE QUE
+HOUVER UMA MUDANÇA NOS DADOS NA INSTÂNCIA DO Vue.js -->
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando Vue.js',
+            link: 'http://google.com.br'
+        },
+        methods: {
+            saudacao(){
+                this.titulo = 'BOM DIA!!';
+                return this.titulo;
+            },
+        }
+    })
+</script>

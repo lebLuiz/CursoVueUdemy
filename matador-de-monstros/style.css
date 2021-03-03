@@ -1,0 +1,143 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    height: 40px;
+}
+
+button {
+    height: 30px;
+    width: auto;
+
+    font-weight: bold;
+
+    margin: 4vh 2vh;
+
+    border-radius: 8px;
+    border: 0;
+    outline: none;
+}
+button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.div-reputacao {
+    display: flex;
+
+    height: 200px;
+
+    justify-content: space-around;
+    box-shadow: 2px 3px 8px black;
+    border-radius: 8px;
+}
+.div-reputacao:hover {
+    background-color: rgb(250, 247, 245);
+    transition: .3s;
+}
+
+.temp1-reputacao, .temp2-reputacao{
+    flex-direction: column;
+
+    justify-items: center;
+
+    text-align: center;
+}
+
+.div-barra1, .div-barra2 {
+    border: 1px solid;
+    width: 300px;
+}
+
+.div-btns {
+    height: 100px;
+
+    padding: 20px;
+
+    text-align: center;
+    box-shadow: 2px 3px 8px black;
+    border-radius: 8px;
+}
+
+.div-lista-ataques {
+    min-height: 100px;
+    padding: 20px;
+
+    text-align: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    box-shadow: 2px 3px 8px black;
+    border-radius: 8px;
+}
+
+.div-pontuacao {
+    margin: 8px;
+    height: 20px;
+    padding: 5px;
+
+    border-radius: 3px;
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-iniciar{
+    background-color: rgb(39, 55, 192);
+    color: white;
+
+    width: 200px;
+
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-ataque {
+    background-color: rgb(212, 46, 46);
+    color: white;
+
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-ataque-especial {
+    background-color: rgb(243, 199, 1);
+    color: black;
+
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-curar {
+    background-color: green;
+    color: white;
+
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-desistir {
+    background-color: rgba(128, 128, 128, 0.623);
+    color: black;
+
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.classP, .classG {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    text-align: center;
+}
+.classP {
+    color: red;
+}
+.classG {
+    color: green;
+}

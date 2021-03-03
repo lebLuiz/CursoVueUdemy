@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+
+    <button v-on:click="addContador">+</button>
+    <button v-on:click="reduceContador">-</button>
+
+    <p v-on:mousemove="passandoORato">Mouse {{ x }} e {{y}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            addContador(){
+                this.contador ++;
+            },
+            reduceContador(){
+                this.contador==0?this.contador==0:this.contador --;
+            },
+
+            passandoORato(event){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+        }
+    })
+</script>

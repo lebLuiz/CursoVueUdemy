@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<div id="app">
+  <input type="text" v-on:input="alterarTitulo">
+  <p>
+    {{ titulo }}
+  </p>
+</div>
+
+
+<!-- Cria uma div com um 'id' chamado: conteudo -->
+<!-- div#conteudo -->
+
+
+<!-- Cria uma div com um 'class' chamado: estilo-1 
+obs: ótimo exemplo para não perder tempo e tratar em css -->
+<!-- div.estilo-1 -->
+
+
+<!-- Cria uma div com um 'class' chamado: estilo-1 &
+uma 'div' chamado: conteudo. -->
+<!-- div.estilo-1#conteudo -->
+
+<script>
+  /*
+    AQUI JÁ COMEÇA A TRATAR DIRETIVAS, UTILIZANDO EXEMPLO DE
+    ESCREVER EM UM INPUT E APARECER EM UM PARAGRÁFO O VALOR ESCRITO.
+    MAS AINDA É BÁSICO
+  */
+  new Vue({
+    el: '#app',
+    data: {
+      v: '',
+      titulo: ''
+    },
+    methods: {
+      alterarTitulo(value){
+        this.titulo = value.target.value;
+      }
+    }
+  })
+</script>

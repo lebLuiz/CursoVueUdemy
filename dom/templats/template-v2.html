@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<div id="app">
+    <h1> {{ titulo }} </h1>
+    <p> {{ saudacao(titulo) }} </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'O Pedro'
+        },
+        methods: {
+            saudacao(v){
+                return `Boa semana pra ti ${v} & \n ${(Math.pow)}`;
+            },
+        }
+    })
+</script>

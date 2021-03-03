@@ -1,0 +1,56 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+
+    <button v-on:click="addContador(5, $event)">+</button>
+    <button v-on:click="reduceContador">-</button>
+
+    <p v-on:mousemove="passandoORato">
+        Mouse {{ x }} e {{y}}
+        <span v-on:mousemove.stop="">PARA AQUI</span>
+    </p>
+
+    <a v-on:click="naoNavegar" href="http://google.com.br">Google</a>
+<!-- Igual a: v-on:click.prevent="" -->
+
+<!-- Só vai acionar a função 'exibirAlerta' quando pressionar Ctrl+Enter no teclado -->
+    <input type="text" v-on:keyup.ctrl.enter="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            addContador(valor, evento){
+                //$event - (sifrão+'event') é um dado padrão do JavaScript.
+                console.log('Valor: ', valor, '\nEvento: ', evento);
+                this.contador += valor;
+            },
+            reduceContador(){
+                this.contador==0?this.contador==0:this.contador --;
+            },
+
+            passandoORato(event){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            parar(event){
+                event.stopPropagation();
+            },
+
+            naoNavegar(event){
+                event.preventDefault();
+            },
+
+            exibirAlerta(){
+                alert('ola');
+            }
+        }
+    })
+</script>

@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<div id="app">
+    <!-- CONTADOR: -->
+    <p>{{ contador }}</p>
+    <p>{{ contador > 10 ? 'Maior do que 10': 'Menor do que 10' }}</p>
+    <button v-on:click="addContador">+</button>
+    <button v-on:click="reduceContador">-</button>
+
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            addContador(){
+                this.contador++;
+            },
+            reduceContador(){
+                this.contador==0?this.contador==0:this.contador --;
+            },
+        }
+    })
+</script>

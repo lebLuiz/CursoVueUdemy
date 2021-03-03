@@ -1,0 +1,61 @@
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="projeto">
+  
+    <div class="div-reputacao">
+        <div class="temp1-reputacao">
+            <h1>Jogador</h1>
+            
+            <div class="div-barra1">
+                <div :style="barra1"></div>
+            </div>
+            <p>{{ vidaP }}%</p>
+        </div>
+
+        <div class="temp2-reputacao">
+            <h1>Monstro</h1>
+            
+            <div class="div-barra2">
+                <div :style="barra2"></div>
+            </div>
+            <p>{{ vidaM }}%</p>
+        </div>
+    </div>
+    <br>
+    <div class="div-btns">
+
+        <template v-if="vidaP <= 0 || vidaM <= 0">
+            <span :class="(vidaP <= 0 && vidaM > 0)?'classP':'classG'">{{msgGanhador}}</span>
+            <br>
+            <button class="btn-iniciar" @click="iniciarJogo">Iniciar novo jogo</button>
+        </template>
+        <template v-else-if="(!iniciar) && (vidaP > 0 || vidaM > 0)">
+            <button class="btn-iniciar" @click="iniciarJogo">Iniciar novo jogo</button>
+        </template>
+        <template v-else>
+            <button class="btn-ataque" @click="ataque">ATAQUE</button>
+            <button class="btn-ataque-especial" @click="ataqueEspecial">ATAQUE ESPECIAL</button>
+            <button class="btn-curar" @click="curar">CURAR</button>
+            <button class="btn-desistir" @click="desistir">DESISTIR</button>
+        </template>
+
+    </div>
+    <br>
+    <div class="div-lista-ataques" v-if="listaPontuacao.length > 0">
+
+        <div v-for="(item, i) in listaPontuacao" :key="i" class="div-pontuacao" 
+            :style="item.individuo=='JOGADOR'?'background-color: rgb(93, 139, 224);':'background-color: rgb(224, 93, 93);'">
+            {{ item.individuo }} 
+            {{ item.acao!='GANHOU FORÇA'?item.acao:'' }} 
+            {{ item.acao!='GANHOU FORÇA'?(item.individuo=='JOGADOR'?'MONSTRO COM ':'JOGADOR COM '):`${item.acao} DE `  }}
+            {{ item.ponto }}.
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
