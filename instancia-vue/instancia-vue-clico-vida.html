@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1>{{ titulo }}</h1>
+    <button @click="titulo += '#'">Alterar Titulo</button>
+    <button @click="$destroy()">Destruir</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Ciclo de Vida',
+        },
+
+        /*
+        beforeCreate(), created(), beforeMount() e mounted():
+        esses métodos são chamados uma única vez na CRIAÇÃO da instância
+        */
+
+        //Antes de criar a instância Vue
+        beforeCreate(){
+            console.log('Antes de Criar');
+        },
+
+        //Depois de criar a instância Vue
+        created(){
+            console.log('Criado');
+        },
+
+        //Antes de pegar o 'template' e jogar na DOM
+        beforeMount(){
+            console.log('Antes de Montar (DOM)');
+        },
+
+        //Quando é montado na DOM
+        mounted(){
+            console.log('DOM Montada');
+        },
+
+
+        /*
+        beforeUpdate() & updated()
+        Vai ser chamado sempre que houver alguma mudança
+        */
+        beforeUpdate(){
+            console.log('Antes de Atualizar');
+        },
+        updated(){
+            console.log('Atualizado');
+        },
+
+
+        //Também será chamado uma única vez
+        beforeDestroy(){
+            console.log('Antes de destruir');
+        },
+        
+        //Será a última coisa feita antes de realmente o Vue dar "tchau" rsrs.
+        destroyed(){
+            console.log('Destruido');
+        }
+    })
+</script>
