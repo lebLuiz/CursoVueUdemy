@@ -7,8 +7,8 @@
             <button class="btn-add-tarefa" @click="addTarefa">+</button>
         </div>
 
-        <p class="msg-obrigatoria" v-if="mostrarMsgObrigatoria">
-            <span>*</span> Campo obrigatório!
+        <p class="msg-obrigatoria" v-if="mostrarMsgAviso!=''">
+            <span>*</span> {{ mostrarMsgAviso }}
         </p>
     </div>
     
@@ -23,7 +23,7 @@ export default {
 
     data() {
         return {
-            mostrarMsgObrigatoria: false,
+            mostrarMsgAviso: '',
             tarefa: {
                 feito: false,
                 tarefa: null,
@@ -34,10 +34,21 @@ export default {
     methods: {
         addTarefa() {
             if (this.tarefa.tarefa == null || this.tarefa.tarefa == '') {
-                this.mostrarMsgObrigatoria = true;
+                this.mostrarMsgAviso = 'Campo obrigatório!';
             } else {
-                this.mostrarMsgObrigatoria = false;
-                this.listaTarefas.push(this.tarefa);
+
+                const found = this.listaTarefas.find(e => e.tarefa == this.tarefa.tarefa)
+
+                if (found==undefined) {
+                    this.mostrarMsgAviso = '';
+                    this.listaTarefas.push(this.tarefa);
+
+                    window.localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
+
+                    this.$emit('receberListaTarefasAtualizada', this.listaTarefas);
+                } else {
+                    this.mostrarMsgAviso = 'Tarefa já adicionada.';
+                }
 
                 this.tarefa = {
                     feito: false,
@@ -45,9 +56,6 @@ export default {
                 };
             }
 
-            window.localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
-
-            this.$emit('receberListaTarefasAtualizada', this.listaTarefas);
         }
     },
 }
